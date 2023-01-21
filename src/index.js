@@ -3,7 +3,7 @@ function Student(name, grades) {
   this.grades = grades;
 
   Object.defineProperty(this, 'averageGrade', {
-    get() {
+    get(...) {
       return this.grades.reduce((acc, curr) => acc + curr) / this.grades.length;
     },
   });
