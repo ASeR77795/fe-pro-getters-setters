@@ -7,12 +7,49 @@ function Student(name, grades) {
       return this.grades.reduce((acc, curr) => acc + curr) / this.grades.length;
     },
   });
+  Object.defineProperty(this, 'aGradeStudents', {
+    get() {
+      if (
+        this.grades.reduce((acc, curr) => acc + curr) / this.grages.length >=
+        90
+      ) {
+        return this.name;
+      }
+    },
+  });
+  Object.defineProperty(this, 'bGradeStudents', {
+    get() {
+      if (
+        this.grades.reduce((acc, curr) => acc + curr) / this.grages.length >=
+          75 &&
+        his.grades.reduce((acc, curr) => acc + curr) / this.grages.length <= 89
+      ) {
+        return this.name;
+      }
+    },
+  });
+  Object.defineProperty(this, 'cGradeStudents', {
+    get() {
+      if (
+        this.grades.reduce((acc, curr) => acc + curr) / this.grages.length >=
+          60 &&
+        his.grades.reduce((acc, curr) => acc + curr) / this.grages.length <= 75
+      ) {
+        return this.name;
+      }
+    },
+  });
+  Object.defineProperty(this, 'dGradeStudents', {
+    get() {
+      if (
+        this.grades.reduce((acc, curr) => acc + curr) / this.grages.length <=
+        59
+      ) {
+        return this.name;
+      }
+    },
+  });
 }
-Object.defineProperties(this, 'aGradeStudents', {
-  get() {
-    return this.grades.reduce((acc, curr) => acc >= 90);
-  },
-});
 
 export const school = {
   students: {
