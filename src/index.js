@@ -3,11 +3,16 @@ function Student(name, grades) {
   this.grades = grades;
 
   Object.defineProperty(this, 'averageGrade', {
-    get(...) {
+    get() {
       return this.grades.reduce((acc, curr) => acc + curr) / this.grades.length;
     },
   });
 }
+Object.defineProperties(this, 'aGradeStudents', {
+  get() {
+    return this.grades.reduce((acc, curr) => acc >= 90);
+  },
+});
 
 export const school = {
   students: {
