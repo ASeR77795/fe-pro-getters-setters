@@ -4,7 +4,6 @@ function Student(name, grades) {
 
   Object.defineProperty(this, 'averageGrade', {
     enumerable: true,
-    configurable: true,
     get() {
       return this.grades.reduce((acc, curr) => acc + curr) / this.grades.length;
     },
@@ -25,59 +24,44 @@ export const school = {
 };
 Object.defineProperty(school, 'aGradeStudents', {
   enumerable: true,
-  configurable: true,
   get() {
-    let result = '';
-    for (let i = 0; i < Object.values(school.students).length; i++) {
-      if (school.students[i].averageGrade >= 90) {
-        result = `${result}${school.students[i].name}, `;
-      }
-    }
+    const scores = Object.values(school.students).filter((student) => {
+      return student.averageGrade >= 90 && student.averageGrade <= 100;
+    });
+    const names = scores.map((item) => {
+      return item.name;
+    });
+    const result = names.join(', ');
     return result;
   },
 });
 Object.defineProperty(school, 'bGradeStudents', {
-  enumerable: true,
-  configurable: true,
   get() {
-    let result = '';
-    for (let i = 0; i < Object.values(school.students).length; i++) {
-      if (
-        school.students[i].averageGrade <= 89 &&
-        school.students[i].averageGrade >= 75
-      ) {
-        result = `${result}${school.students[i].name}, `;
-      }
-    }
-    return result;
+    return Object.values(this.students)
+      .filter(
+        (student) => student.averageGrade >= 75 && student.averageGrade <= 89
+      )
+      .map((item) => item.name)
+      .join(', ');
   },
 });
 Object.defineProperty(school, 'cGradeStudents', {
-  enumerable: true,
-  configurable: true,
   get() {
-    let result = '';
-    for (let i = 0; i < Object.values(school.students).length; i++) {
-      if (
-        school.students[i].averageGrade <= 75 &&
-        school.students[i].averageGrade >= 60
-      ) {
-        result = `${result}${school.students[i].name}, `;
-      }
-    }
-    return result;
+    return Object.values(this.students)
+      .filter(
+        (student) => student.averageGrade <= 75 && student.averageGrade >= 60
+      )
+      .map((item) => item.name)
+      .join(', ');
   },
 });
 Object.defineProperty(school, 'dGradeStudents', {
-  enumerable: true,
-  configurable: true,
   get() {
-    let result = '';
-    for (let i = 0; i < Object.values(school.students).length; i++) {
-      if (school.students[i].averageGrade <= 59) {
-        result = `${result}${school.students[i].name}, `;
-      }
-    }
-    return result;
+    return Object.values(this.students)
+      .filter(
+        (student) => student.averageGrade <= 59 && student.averageGrade >= 0
+      )
+      .map((item) => item.name)
+      .join(', ');
   },
 });
