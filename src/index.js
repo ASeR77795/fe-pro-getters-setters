@@ -30,7 +30,7 @@ Object.defineProperty(school, 'aGradeStudents', {
     let result = '';
     for (let i = 0; i < Object.values(school.students).length; i++) {
       if (school.students[i].averageGrade >= 90) {
-        result = `${result}${school.students[i].name},`;
+        result = `${result}${school.students[i].name}, `;
       }
     }
     return result;
@@ -46,7 +46,7 @@ Object.defineProperty(school, 'bGradeStudents', {
         school.students[i].averageGrade <= 89 &&
         school.students[i].averageGrade >= 75
       ) {
-        result = `${result}${school.students[i].name},`;
+        result = `${result}${school.students[i].name}, `;
       }
     }
     return result;
@@ -62,7 +62,7 @@ Object.defineProperty(school, 'cGradeStudents', {
         school.students[i].averageGrade <= 75 &&
         school.students[i].averageGrade >= 60
       ) {
-        result = `${result}${school.students[i].name},`;
+        result = `${result}${school.students[i].name}, `;
       }
     }
     return result;
@@ -75,7 +75,7 @@ Object.defineProperty(school, 'dGradeStudents', {
     let result = '';
     for (let i = 0; i < Object.values(school.students).length; i++) {
       if (school.students[i].averageGrade <= 59) {
-        result = `${result}${school.students[i].name},`;
+        result = `${result}${school.students[i].name}, `;
       }
     }
     return result;
